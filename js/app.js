@@ -6,7 +6,7 @@ var y_move = 83;    //distance moved pressing up or down arrow
 var Game = function() {
     this.sprite = 'images/Heart.png';
     this.speed = 100;    //inital speed
-    this.gameLevel = 1;   // starting level for the game, moves to next one everytime player reaches the water
+    this.gameLevel = 1;   // starting level for the game, moves to next one everytime player touches the star
     this.gameLevelMax = 1; //keep track record level of the session
     this.num_lives = 5;  //total number of lives 
 }
@@ -41,9 +41,9 @@ Game.prototype.render = function() {
 }
  
 Game.prototype.reset = function() {
-    game.gameLevel = 1; //rset game lavel back to 1
-    game.speed = 100;  //inital speed is 100
-    game.num_lives--;
+    this.gameLevel = 1; //rset game lavel back to 1
+    this.speed = 100;  //inital speed is 100
+    this.num_lives--;
 }
 
 
@@ -177,7 +177,7 @@ Player.prototype.handleInput = function(key) {
    else {
     if (key == "down") { //start over
     game.speed = 100;    //inital speed
-    game.gameLevel = 1;   // starting level for the game, moves to next one everytime player reaches the water
+    game.gameLevel = 1;   // starting level for the game, moves to next one everytime player touches the star
     game.gameLevelMax = 1; //keep track record level of the session
     game.num_lives = 5;  //total number of lives 
 
