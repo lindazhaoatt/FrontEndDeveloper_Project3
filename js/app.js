@@ -1,7 +1,4 @@
 
-var x_move = 101;   //distance moved pressing left or right arrow
-var y_move = 83;    //distance moved pressing up or down arrow
-
 
 var Game = function() {
     this.sprite = 'images/Heart.png';
@@ -41,7 +38,7 @@ Game.prototype.render = function() {
 }
  
 Game.prototype.reset = function() {
-    this.gameLevel = 1; //rset game lavel back to 1
+    this.gameLevel = 1; //reset game level back to 1
     this.speed = 100;  //inital speed is 100
     this.num_lives--;
 }
@@ -102,6 +99,9 @@ var Player = function(x,y) {
     this.sprite = Player.playerImages[Math.floor(Math.random() * 5)];
     this.x = x;
     this.y = y;
+    this.x_move = 101;   //distance moved pressing left or right arrow
+    this.y_move = 83;    //distance moved pressing up or down arrow
+
 }
 
 Player.prototype.update = function(dt) {
@@ -135,28 +135,28 @@ Player.prototype.handleInput = function(key) {
         if(this.y - 83<=-40 ){ 
         } 
         else {
-            this.y = this.y - y_move} //move up
+            this.y = this.y - this.y_move} //move up
     }
     if (key == "down") {
         if(this.y > 300 ){ 
             this.y = 400;  
         } 
         else {
-            this.y = this.y + y_move} //move down
+            this.y = this.y + this.y_move} //move down
     }
     if (key == "left") {
         if(this.x < 101 ){ 
             this.x = 0;  
         } 
         else {
-            this.x = this.x - x_move} //move left
+            this.x = this.x - this.x_move} //move left
     }
     if (key == "right") {
         if(this.x  > 300){  
              this.x = 400; 
             } 
         else {
-             this.x = this.x + x_move} //move right
+             this.x = this.x + this.x_move} //move right
     }
 
 
